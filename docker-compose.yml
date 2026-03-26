@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  # ==========================================
+  # INFRAESTRUTURA BASE (A SUA!)
+  # ==========================================
+  postgres:
+    image: postgres:16-alpine
+    container_name: postgres_db
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: gerenciamento_escolar_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
